@@ -1,0 +1,9 @@
+.all_expenses{
+  background: #af1386;
+  padding: 10px;
+}
+
+.all_expenses li{
+  background: #bb2512;
+  padding: 10px;
+}

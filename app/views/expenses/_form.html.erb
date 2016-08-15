@@ -1,0 +1,15 @@
+<%= form_for @expense do |f| %>
+  <%= f.label "Title" %>
+  <%= f.text_field :title %><br/>
+  <%= f.label "Value" %>
+  <%= f.text_field :value %><br/>
+  <%= f.label "Description" %>
+  <%= f.text_area :description %><br/>
+  <%= f.label "Date of expense" %>
+  <%= f.text_field :date_exp  %><br/>
+  <%= f.label "Category" %>
+  <%= f.collection_select(:category_id, Category.all, :id, :name, :prompt => "Select a category") %><br/>
+  <%= f.label "City" %>
+  <%= f.collection_select(:city_id, City.all, :id, :name, :prompt => "Select a city") %><br/>
+  <%= f.submit "Save" %>
+<% end %>
