@@ -2,7 +2,12 @@ class ExpensesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @expenses = Expense.all
+    @categories = Category.all
+    if params[:category].nil?
+      @expenses = Expense.all
+    else
+      @expenses = Expense.where(category_id: params[:category])
+    end
   end
 
   def show
