@@ -11,4 +11,5 @@ class Expense < ActiveRecord::Base
   # validates :user, presence: true
   validates :category, presence: true
   validates :city, presence: true
+  validates :user, presence: true
 end

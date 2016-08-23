@@ -57,13 +57,13 @@
               <br/><br/>
             <% end %>
             <% if !expense.description.nil? %>
-            <p class="aligned-expense"><%= truncate(expense.description, :length => 40) %>...</p>
+            <p class="aligned-expense"><%= truncate(expense.description, :length => 60) %>...</p>
             <% else %>
               <br/><br/>
             <% end %>
             <%= link_to "Open", expense_path(expense.id), class: "btn btn-success btn-changed" %>
             <%= link_to "Edit", edit_expense_path(expense.id), class: "btn btn-warning btn-changed" %>
-             <a href="#" class="btn btn-primary btn-changed" role="button">Delete</a>
+            <%= link_to "Delete", {action: :destroy, id: expense.id}, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-changed" %>
           </div>
         </div>
       </div>
