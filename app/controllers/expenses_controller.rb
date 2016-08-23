@@ -19,7 +19,7 @@ class ExpensesController < ApplicationController
       if expense.category.outcome == false
         @wallet += expense.value
       else
-        @spent_money += expenses.value
+        @spent_money += expense.value
       end
     end
     if @wallet == 0
