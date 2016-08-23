@@ -23,5 +23,6 @@
   <%= f.label "City" %>
   <%= f.collection_select(:city_id, City.all, :id, :name, :prompt => "Select a city") %><br/>
     <%= f.hidden_field :outcome, value: params[:outcome] %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.submit "Save" %>
 <% end %>
