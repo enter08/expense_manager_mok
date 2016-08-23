@@ -1,1 +1,101 @@
-<p> You have payed <%= @expense.value %> for something. </p>
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<div class="container">
+<% if @expense.category.outcome == true %>
+    <div class="row" id="red">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-danger coupon">
+<% else %>
+
+    <div class="row" id="green">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-success coupon">
+<% end %>
+              <div class="panel-heading" id="head">
+                <div class="panel-title" id="title">
+                    <i class="fa fa-github fa-2x"></i>
+                    <span class="hidden-xs"><%= @expense.title.upcase %></span>
+                    <span class="visible-xs"><%= @expense.title.upcase %></span>
+                </div>
+              </div>
+              <div class="panel-body">
+                <%= image_tag(@expense.image, class: "coupon-img img-rounded") %>
+                <div class="col-md-9">
+                    <ul class="items">
+                        <li><%= @expense.description %></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <div class="offer text-danger">
+                        <span class="usd"><sup>€</sup></span>
+                        <span class="number">700</span>
+                        <span class="cents"><sup>00</sup></span>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <p class="disclosure">Expense manager policy rules. Bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla</p>
+                </div>
+              </div>
+              <div class="panel-footer">
+                <div class="coupon-code">
+                    ID: <%= @expense.id %>
+                    <span class="print">
+                        <a href="#" class="btn btn-link"><i class="fa fa-lg fa-print"></i> Print Coupon</a>
+                    </span>
+                </div>
+                <div class="exp">Created: <%= @expense.created_at %></div>
+              </div>
+            </div>
+      </div>
+    </div>
+    
+    <p class="text-center"><a href="#" class="btn btn-default">Back to top <i class="fa fa-chevron-up"></i></a></p>
+
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><strong>Expense Summary</strong></h3>
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table class="table table-condensed">
+              <thead>
+                              <tr>
+                    <td><strong>Title</strong></td>
+                    <td class="text-center"><strong>Value</strong></td>
+                    <td class="text-center"><strong>Description</strong></td>
+                    <td class="text-center"><strong>Date of expense</strong></td>
+                    <td class="text-center"><strong>Category</strong></td>
+                    <td class="text-right"><strong>City</strong></td>
+                              </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><%= @expense.title %></td>
+                  <td class="text-center"><%= @expense.value %> €</td>
+                  <td class="text-center"><%= @expense.description %></td>
+                  <td class="text-center"><%= @expense.date_exp %></td>
+                  <td class="text-center"><%= @expense.category_id %></td>
+                  <td class="text-right"><%=  @expense.city_id %></td>
+                </tr>
+                <tr>
+                  <td class="thick-line"></td>
+                  <td class="thick-line"></td>
+                  <td class="thick-line"></td>
+                  <td class="thick-line text-right"><strong>Total expense</strong></td>
+                  <td class="thick-line text-right">€ <%= @expense.value %> </td>
+                </tr>
+               </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

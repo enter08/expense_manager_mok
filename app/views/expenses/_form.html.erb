@@ -1,28 +1,43 @@
 <%= form_for @expense do |f| %>
-  <%= f.label "Title" %>
-  <%= f.text_field :title %><br/>
-  <%= f.label "Value" %>
-  <%= f.text_field :value %><br/>
-  <%= f.label "Description" %>
-  <%= f.text_area :description %><br/>
-  <%= f.label "Image" %>
-  <%= f.file_field :image %><br/>
-  <%= f.label "Date of expense" %>
-  <%= f.text_field :date_exp  %><br/>
-  <%= f.label "Category" %>
+  <div class="form-group">
+    <%= f.text_field :title, class: "form-control", placeholder: "Title" %><br/>
+  </div>
+  <div class="form-group">
+  <%= f.text_field :value, class: "form-control" %><br/>
+  </div>
+  <div class="form-group">
+  <%= f.text_area :description, class: "form-control" %><br/>
+  </div>
+  <div class="field">
+  <div class="form-group"><div class="fileUpload btn btn-primary">
+  <%= f.file_field :image %><br/></div>
+  </div></div>
+  <div class="form-group">
+  <%= f.text_field :date_exp, 'data-behaviour' => 'datepicker', id: "datepicker2", placeholder: "Date of expense", class: "form-control"  %><br/>
+  </div>
+  <script>
+    $('#datepicker2').datepicker({
+      format: "dd-mm-yyyy"
+    })
+  </script>
+  <div class="form-group">
   <% if !params[:outcome].nil? %>
     <% if params[:outcome] == "false" %>
     <% outcome = false %>
     <% elsif params[:outcome] == "true" %>
     <% outcome = true %>
     <% end %>
-    <%= f.collection_select(:category_id, Category.where(outcome: outcome), :id, :name, :prompt => "Select a category") %><br/>
+    <%= f.collection_select(:category_id, Category.where(outcome: outcome), :id, :name, {:prompt => "Select a category"}, {class: "form-control"}) %><br/>
   <% else %>
-    <%= f.collection_select(:category_id, Category.all, :id, :name, :prompt => "Select a category") %><br/>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, {:prompt => "Select a category"}, {class: "form-control"}) %><br/>
   <% end %>
-  <%= f.label "City" %>
-  <%= f.collection_select(:city_id, City.all, :id, :name, :prompt => "Select a city") %><br/>
+  </div>
+  <div class="form-group">
+  <%= f.collection_select(:city_id, City.all, :id, :name,{:prompt => "Select a city"}, {class: "form-control"}) %><br/>
+  </div>
+  <div class="form-group">
     <%= f.hidden_field :outcome, value: params[:outcome] %>
     <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.submit "Save" %>
+  <%= f.submit "Save", class: "btn btn-default" %>
+  </div>
 <% end %>

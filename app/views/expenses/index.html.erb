@@ -40,7 +40,7 @@
       <center>
         <%= link_to 'Add Expense', new_expense_path(outcome: true), class: "btn btn-danger"%>
         <%= link_to 'Add Income', new_expense_path(outcome: false), class: "btn btn-success"%>
-        </center>
+        </center><br/>
       <% @expenses.each do |expense| %>
         <div class="col-md-3 col-lg-3 col-sm-3">
         <div class="thumbnail">
@@ -57,13 +57,15 @@
               <br/><br/>
             <% end %>
             <% if !expense.description.nil? %>
-            <p class="aligned-expense"><%= truncate(expense.description, :length => 60) %>...</p>
+            <p class="aligned-expense"><%= truncate(expense.description, :length => 23) %></p>
             <% else %>
               <br/><br/>
             <% end %>
+            <center>
             <%= link_to "Open", expense_path(expense.id), class: "btn btn-success btn-changed" %>
             <%= link_to "Edit", edit_expense_path(expense.id), class: "btn btn-warning btn-changed" %>
             <%= link_to "Delete", {action: :destroy, id: expense.id}, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-changed" %>
+            </center>
           </div>
         </div>
       </div>
