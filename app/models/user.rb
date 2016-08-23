@@ -9,4 +9,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :expenses
+  has_one :budget
 end

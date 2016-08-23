@@ -7,3 +7,24 @@
   background: #bb2512;
   padding: 10px;
 }
+
+.expenses_image_width{
+  width: 225px !important;
+  height: 180px !important;
+}
+
+.btn-changed{
+  padding: 2px 6px !important;
+}
+
+.aligned-expense{
+  margin-top: -6px;
+}
+
+.move-expense-alert{
+  margin-bottom: -20px;
+}
+
+.field_width{
+  max-width: 200px;
+}

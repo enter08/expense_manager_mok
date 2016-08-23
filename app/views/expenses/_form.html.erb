@@ -10,8 +10,18 @@
   <%= f.label "Date of expense" %>
   <%= f.text_field :date_exp  %><br/>
   <%= f.label "Category" %>
-  <%= f.collection_select(:category_id, Category.all, :id, :name, :prompt => "Select a category") %><br/>
+  <% if !params[:outcome].nil? %>
+    <% if params[:outcome] == "false" %>
+    <% outcome = false %>
+    <% elsif params[:outcome] == "true" %>
+    <% outcome = true %>
+    <% end %>
+    <%= f.collection_select(:category_id, Category.where(outcome: outcome), :id, :name, :prompt => "Select a category") %><br/>
+  <% else %>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, :prompt => "Select a category") %><br/>
+  <% end %>
   <%= f.label "City" %>
   <%= f.collection_select(:city_id, City.all, :id, :name, :prompt => "Select a city") %><br/>
+    <%= f.hidden_field :outcome, value: params[:outcome] %>
   <%= f.submit "Save" %>
 <% end %>
