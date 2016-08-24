@@ -13,7 +13,7 @@ namespace :expense_manager do
       @category9 = Category.create({name: "Clothing", outcome: true})
       @category10 = Category.create({name: "Salary", outcome: false})
       @category11 = Category.create({name: "Extra Income", outcome: false})
-      @category12 = Category.create({name: "Business", outcome: false})
+      @category12 = Category.create({name: "Loan", outcome: false})
     end
 
     task populate_cities: :environment do
