@@ -1,4 +1,6 @@
-<%= image_tag(current_user.avatar)%>
+<% if user_singed_in?
+  <%= image_tag(current_user.avatar)%>
+<% end %>
 
 <div class="container"></div>
 <div class="row">
