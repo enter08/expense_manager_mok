@@ -56,7 +56,6 @@ gem 'factory_girl_rails'
 group :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'database_cleaner'
-  gem 'capybara-webkit'
   gem 'capybara'
 end
 
