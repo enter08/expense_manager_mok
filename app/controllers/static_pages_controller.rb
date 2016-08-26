@@ -4,4 +4,6 @@ class StaticPagesController < ApplicationController
     @last_category = Category.last
     @incomes = Category.where(outcome: false)
   end
+  def contact
+  end
 end

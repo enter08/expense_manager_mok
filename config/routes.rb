@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   root 'static_pages#home'
+  get '/contact' => 'static_pages#contact'
 
   resources :cities
   resources :expenses
